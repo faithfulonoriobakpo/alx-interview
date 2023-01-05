@@ -1,22 +1,29 @@
 #!/usr/bin/python3
-"""
-    This module contains the canUnlockAll function.
-"""
+'''
+module contains solution to lockboxes problem
+'''
 
 
 def canUnlockAll(boxes):
-    """Method that determines if all the boxes can be opened
-        Arg:
-            boxes: Is a list of lists.
-    """
-    box = len(boxes) * [False]
-    box[0] = True
-    keys = [0]
+    '''
+        function to check whether every box within boxes can be unlocked
+        parameters:
+            @boxes(list): list that contains all boxes
+        return:
+            true if all boxes can be opened
+            false if not all boxes can be opened
+    '''
+    if not boxes:
+        return False
 
-    for each in keys:
-        for i in boxes[each]:
-            if i not in keys:
-                if i < len(boxes):
-                    box[i] = True
-                    keys.append(i)
-    return all(box)
+    unlocked = [0]
+
+    for i in range(1, len(boxes)):
+        j = 0
+        while j < len(boxes):
+            if i in boxes[j] and i != j:
+                unlocked.append(i)
+            j += 1
+
+    unlocked = list(set(unlocked))
+    return True if len(unlocked) == len(boxes) else False
