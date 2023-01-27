@@ -16,7 +16,8 @@ def validUTF8(data):
         if numberOfBytes == 0:
             # get number of 1s at beginning of string
             for bit in binaryRepresentation:
-                if bit == '0': break
+                if bit == '0':
+                    break
                 numberOfBytes += 1
 
             if numberOfBytes == 0:
