@@ -28,7 +28,7 @@ def validUTF8(data):
 
         else:
             if not (binaryRepresentation[0] == '1' and
-            binaryRepresentation[1] == '0'):
+                binaryRepresentation[1] == '0'):
                 return False
 
         numberOfBytes -= 1
